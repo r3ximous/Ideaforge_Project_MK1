@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#151713" />
+    <meta
+      name="description"
+      content="Follow your Altitude Pulse order, from the first pour to your next good moment."
+    />
+    <title>Your order — Altitude Pulse</title>
+    <link rel="icon" href="/assets/icon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="stylesheet" href="/assets/style.css" />
+    <script type="module" src="/js/tracker.js"></script>
+  </head>
+  <body>
+    <header class="site-header" id="site-header"></header>
+    <main id="main" class="wrap spacer-bottom">
+      <div class="content-narrow">
+        <div class="page-heading">
+          <p class="eyebrow">From our hands to yours</p>
+          <h1>Your moment<br />is brewing.</h1>
+          <p>
+            A live look at your order. Leave this page open and we’ll keep you
+            in the loop.
+          </p>
+        </div>
+        <div class="row" style="flex-wrap: wrap; margin-bottom: 20px">
+          <span class="connection" id="connection" role="status"
+            >Waiting for an order</span
+          ><button
+            class="btn ghost small"
+            id="enable-alerts"
+            aria-pressed="false"
+            type="button"
+          >
+            Enable alerts
+          </button>
+        </div>
+        <p class="small muted">
+          Optional sound and device notifications while this page is open. No
+          background push notifications.
+        </p>
+        <div id="track-loading" class="loading" role="status" hidden>
+          Finding your order…
+        </div>
+        <p id="track-error" class="notice error" role="alert" hidden></p>
+        <button class="btn secondary" id="retry-track" type="button" hidden>
+          Retry update
+        </button>
+        <div id="order-view" hidden></div>
+        <section class="panel" id="lookup-panel" aria-labelledby="lookup-title">
+          <h2 id="lookup-title">Find your daily lift.</h2>
+          <p class="muted small">
+            Your latest order opens automatically on this browser. You can also
+            use an order ID and its private access token. For your own orders,
+            your saved customer profile can grant access.
+          </p>
+          <form id="lookup-form">
+            <label for="lookup-id">Order ID</label
+            ><input
+              id="lookup-id"
+              name="order_id"
+              required
+              autocomplete="off"
+            /><label for="lookup-token"
+              >Order access token (if not saved here)</label
+            ><input
+              id="lookup-token"
+              name="token"
+              type="password"
+              autocomplete="off"
+            /><button class="btn full" type="submit" style="margin-top: 20px">
+              Track this order ↗
+            </button>
+          </form>
+          <p class="small muted">
+            Keep tokens private.
+            <a class="inline-link" href="/history.html"
+              >Find your receipts in History</a
+            >.
+          </p>
+        </section>
+        <a href="/" class="btn ghost">Back to the menu ↗</a>
+      </div>
+    </main>
+    <footer class="site-footer" id="site-footer"></footer>
+    <noscript
+      ><p class="notice">
+        JavaScript is required for order tracking.
+      </p></noscript
+    >
+  </body>
+</html>

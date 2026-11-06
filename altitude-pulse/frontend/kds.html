@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#151713" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Kitchen display — Altitude Pulse</title>
+    <link rel="icon" href="/assets/icon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="stylesheet" href="/assets/style.css" />
+    <script type="module" src="/js/kds.js"></script>
+  </head>
+  <body>
+    <header class="site-header" id="site-header"></header>
+    <main id="main" class="wrap">
+      <div class="page-heading">
+        <p class="eyebrow">Behind every good cup</p>
+        <h1>The pulse<br />of the kitchen.</h1>
+        <p>Live orders. Clear handoffs. A little lift, delivered.</p>
+      </div>
+      <div class="kds-toolbar">
+        <form id="staff-form">
+          <div class="key-field">
+            <label for="staff-key">Staff access key</label
+            ><input
+              id="staff-key"
+              type="password"
+              autocomplete="off"
+              placeholder="Enter your staff key"
+              required
+            />
+          </div>
+          <button class="btn" type="submit" id="connect-kds">
+            Connect board ↗
+          </button>
+        </form>
+        <button class="btn ghost" id="disconnect-kds" type="button" hidden>
+          Disconnect</button
+        ><button
+          class="btn ghost"
+          id="kds-alerts"
+          type="button"
+          aria-pressed="false"
+        >
+          Enable alerts
+        </button>
+      </div>
+      <p class="small muted">
+        The key stays in memory for this page only. Active orders refresh every
+        3 seconds. Optional alerts work while this page is open — not background
+        push.
+      </p>
+      <div class="kds-stats">
+        <span id="kds-connection" role="status">Staff access required</span
+        ><span id="kds-count">0 active orders</span
+        ><button class="btn ghost small" id="refresh-kds" type="button" hidden>
+          Refresh now ↻
+        </button>
+      </div>
+      <p class="notice error" id="kds-error" role="alert" hidden></p>
+      <div id="kds-loading" class="loading" role="status" hidden>
+        Opening the kitchen…
+      </div>
+      <div class="notice" id="kds-locked">
+        Enter a staff key to load the kitchen board. No customer or order data
+        is shown before authentication.
+      </div>
+      <div class="kds-board" id="kds-board" hidden>
+        <section class="kds-column" aria-labelledby="pending-title">
+          <h2 id="pending-title">
+            01 / In the queue <span id="pending-count">0</span>
+          </h2>
+          <div id="pending-orders"></div>
+        </section>
+        <section class="kds-column" aria-labelledby="preparing-title">
+          <h2 id="preparing-title">
+            02 / In the making <span id="preparing-count">0</span>
+          </h2>
+          <div id="preparing-orders"></div>
+        </section>
+        <section class="kds-column" aria-labelledby="ready-title">
+          <h2 id="ready-title">
+            03 / Ready to lift <span id="ready-count">0</span>
+          </h2>
+          <div id="ready-orders"></div>
+        </section>
+      </div>
+    </main>
+    <footer class="site-footer" id="site-footer"></footer>
+    <dialog id="cancel-dialog" aria-labelledby="cancel-title">
+      <div class="dialog-head">
+        <h2 id="cancel-title">Cancel this order?</h2>
+        <button
+          class="icon-btn"
+          id="close-cancel"
+          type="button"
+          aria-label="Close cancellation"
+        >
+          ×
+        </button>
+      </div>
+      <p class="muted small" id="cancel-description"></p>
+      <p class="notice">
+        Cancellation is final. No loyalty points will be awarded.
+      </p>
+      <div class="stack">
+        <button class="btn danger" id="confirm-cancel" type="button">
+          Yes, cancel order</button
+        ><button class="btn secondary" id="keep-order" type="button">
+          Keep order
+        </button>
+      </div>
+    </dialog>
+    <noscript
+      ><p class="notice">
+        JavaScript is required for the staff board.
+      </p></noscript
+    >
+  </body>
+</html>

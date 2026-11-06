@@ -1,0 +1,36 @@
+{
+  "id": "/",
+  "name": "Altitude Pulse · RIT Dubai",
+  "short_name": "Altitude Pulse",
+  "description": "A little lift. Order campus coffee, track every cup, and collect your good moments.",
+  "lang": "en",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#151713",
+  "theme_color": "#151713",
+  "icons": [
+    {
+      "src": "/assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    { "name": "Track your order", "url": "/track.html" },
+    { "name": "Your receipts", "url": "/history.html" }
+  ]
+}

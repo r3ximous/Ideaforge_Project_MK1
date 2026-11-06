@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#151713" />
+    <meta
+      name="description"
+      content="Your Altitude Pulse order receipts, loyalty points, and favourites ready to reorder."
+    />
+    <title>Your rituals — Altitude Pulse</title>
+    <link rel="icon" href="/assets/icon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="stylesheet" href="/assets/style.css" />
+    <script type="module" src="/js/history.js"></script>
+  </head>
+  <body>
+    <header class="site-header" id="site-header"></header>
+    <main id="main" class="wrap spacer-bottom">
+      <div class="content-narrow">
+        <div class="page-heading">
+          <p class="eyebrow">The good moments, collected</p>
+          <h1>Your coffee<br />story, so far.</h1>
+          <p>Every receipt. Every ritual. Ready for another round?</p>
+        </div>
+        <div id="history-member" class="panel" hidden></div>
+        <div class="section-top">
+          <h2>Your orders</h2>
+          <button class="btn ghost small" id="refresh-history" type="button">
+            Refresh ↻
+          </button>
+        </div>
+        <div id="history-loading" class="loading" role="status" hidden>
+          Gathering your good moments…
+        </div>
+        <p id="history-error" class="notice error" role="alert" hidden></p>
+        <div id="history-gate" class="panel" hidden>
+          <h2>A story worth keeping.</h2>
+          <p class="muted small">
+            Create a profile to start collecting receipts and points. Already
+            ordered? Use the same browser where you registered. This demo has no
+            login recovery.
+          </p>
+          <button id="join-history" type="button" class="btn">
+            Create a profile ↗
+          </button>
+        </div>
+        <div id="history-orders"></div>
+        <div id="history-empty" class="empty" hidden>
+          <span class="empty-icon" aria-hidden="true">↺</span>No orders yet.
+          Every good ritual starts somewhere.<br /><a
+            class="btn"
+            href="/"
+            style="margin-top: 20px"
+            >Find your first favourite ↗</a
+          >
+        </div>
+      </div>
+    </main>
+    <footer class="site-footer" id="site-footer"></footer>
+    <noscript
+      ><p class="notice">
+        JavaScript is required to load private order history.
+      </p></noscript
+    >
+  </body>
+</html>

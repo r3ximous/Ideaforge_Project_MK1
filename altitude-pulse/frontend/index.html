@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#151713" />
+    <meta
+      name="description"
+      content="Your campus coffee ritual, elevated. Order coffee, explore RIT Dubai events, and follow every cup at Altitude Pulse."
+    />
+    <title>Altitude Pulse — A little lift. A better day.</title>
+    <link rel="icon" href="/assets/icon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="stylesheet" href="/assets/style.css" />
+    <script
+      type="module"
+      async
+      src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"
+    ></script>
+    <script type="module" src="/js/app.js"></script>
+  </head>
+  <body>
+    <header class="site-header" id="site-header"></header>
+    <main id="main" class="wrap">
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <p class="eyebrow">Your campus. Your coffee. Your altitude.</p>
+          <h1 id="hero-title">A little lift.<br />A <em>better</em> day.</h1>
+          <p class="hero-copy">
+            Between the early lectures and the next big idea. Find your daily
+            ritual at RIT Dubai.
+          </p>
+        </div>
+        <div class="hero-art">
+          <span class="art-note">THE CAMPUS COLLECTION / 01</span
+          ><span class="art-pill">Made for your momentum ↗</span>
+          <div id="hero-cup"></div>
+        </div>
+      </section>
+      <div class="info-strip">
+        <span>Freshly made on campus</span><span>Every cup earns points</span
+        ><span>Pickup or table service</span>
+      </div>
+      <div class="menu-layout">
+        <section aria-labelledby="menu-title">
+          <section
+            id="popular-now"
+            class="popular-section"
+            aria-labelledby="popular-title"
+            hidden
+          >
+            <div class="section-top">
+              <div>
+                <p class="eyebrow">The campus top three</p>
+                <h2 id="popular-title">Popular Now</h2>
+              </div>
+              <span class="small muted">Your most-loved study breaks</span>
+            </div>
+            <div class="product-grid popular-grid" id="popular-grid"></div>
+          </section>
+          <div class="section-top">
+            <h2 id="menu-title">Find your frequency.</h2>
+            <span class="small muted" id="menu-count">The campus menu</span>
+          </div>
+          <label for="menu-search" class="field-label">Search the menu</label
+          ><input
+            class="search"
+            id="menu-search"
+            type="search"
+            placeholder="Your next favourite…"
+            autocomplete="off"
+          />
+          <div
+            class="filters"
+            id="category-filters"
+            role="group"
+            aria-label="Menu categories"
+          ></div>
+          <div id="menu-loading" class="loading" role="status">
+            Brewing the menu…
+          </div>
+          <div id="menu-error" class="notice error" role="alert" hidden></div>
+          <button class="btn secondary" id="retry-menu" type="button" hidden>
+            Try menu again
+          </button>
+          <div class="product-grid" id="menu-grid"></div>
+          <div id="menu-empty" class="empty" hidden>
+            No matches. Try a different name or category.
+          </div>
+          <div id="promotion" hidden></div>
+        </section>
+        <aside
+          class="cart-panel"
+          id="cart-panel"
+          aria-labelledby="cart-heading"
+        >
+          <div class="row">
+            <h2 id="cart-heading">
+              Your daily lift <span class="muted" id="cart-count">(0)</span>
+            </h2>
+            <button
+              class="icon-btn"
+              id="close-cart"
+              type="button"
+              aria-label="Close bag"
+            >
+              ×
+            </button>
+          </div>
+          <div id="cart-items"></div>
+          <div class="cart-total">
+            <span>Subtotal</span><strong id="cart-subtotal">AED 0.00</strong>
+          </div>
+          <p class="small muted">
+            Discounts are confirmed by the server at checkout.
+          </p>
+          <button class="btn full" id="checkout-button" type="button" disabled>
+            Continue to checkout ↗
+          </button>
+          <p class="small muted" style="margin: 12px 0 0">
+            Demo payments. Real good taste.
+          </p>
+        </aside>
+      </div>
+      <section
+        class="events-section"
+        id="events"
+        aria-labelledby="events-heading"
+      >
+        <div class="section-top">
+          <div>
+            <p class="eyebrow">More than a coffee break</p>
+            <h2 id="events-heading">Meet your people.</h2>
+          </div>
+          <span class="small muted">RIT Dubai clubs</span>
+        </div>
+        <div id="events-loading" class="loading" role="status">
+          Finding campus happenings…
+        </div>
+        <div class="notice error" id="events-error" role="alert" hidden></div>
+        <button type="button" class="btn secondary" id="retry-events" hidden>
+          Retry events
+        </button>
+        <div class="event-grid" id="events-grid"></div>
+        <div id="promo-token-note" class="notice success" hidden></div>
+      </section>
+      <section
+        class="loyalty-section"
+        id="loyalty"
+        aria-labelledby="loyalty-heading"
+      >
+        <div>
+          <p class="eyebrow">The altitude club</p>
+          <h2 id="loyalty-heading">Good rituals.<br />Even better returns.</h2>
+          <p class="muted small">
+            Your completed orders earn points. Returning members with an
+            eligible offer get 20% off automatically. An event offer and return
+            offer never stack — the better discount wins.
+          </p>
+          <button class="btn ghost" id="loyalty-button" type="button">
+            Your membership ↗
+          </button>
+        </div>
+        <div class="loyalty-card">
+          <div class="row">
+            <strong>ALTITUDE / CLUB</strong
+            ><span class="badge" id="loyalty-tier">Campus coffee</span>
+          </div>
+          <div class="loyalty-points" id="loyalty-points">
+            0 <span class="small">pts</span>
+          </div>
+          <p id="loyalty-caption">
+            A little more altitude with every completed order.
+          </p>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer" id="site-footer"></footer>
+    <button class="btn cart-mobile" id="mobile-cart" type="button" hidden>
+      <span id="mobile-cart-label">Your bag · 0 cups</span
+      ><span id="mobile-cart-total">AED 0.00 ↗</span>
+    </button>
+    <dialog id="item-dialog" aria-labelledby="item-title">
+      <div class="dialog-head">
+        <h2 id="item-title">Make it yours.</h2>
+        <button
+          class="icon-btn"
+          data-close
+          type="button"
+          aria-label="Close item"
+        >
+          ×
+        </button>
+      </div>
+      <div class="dialog-art" id="item-art"></div>
+      <p class="muted small" id="item-description"></p>
+      <form id="item-form">
+        <label for="item-size">Size</label
+        ><select id="item-size" name="size"></select
+        ><label for="item-customization">Make it yours (optional)</label
+        ><textarea
+          id="item-customization"
+          name="customization"
+          maxlength="200"
+          placeholder="Oat milk, less ice, an extra hot start…"
+        ></textarea>
+        <p class="small muted">
+          Requests are shared with the team. Please discuss allergies with staff
+          before ordering.
+        </p>
+        <label for="item-quantity">Number of cups / items</label
+        ><input
+          id="item-quantity"
+          name="quantity"
+          type="number"
+          min="1"
+          max="20"
+          value="1"
+          required
+        />
+        <div class="form-actions">
+          <button class="btn full" type="submit" id="item-add">
+            Add to bag
+          </button>
+        </div>
+      </form>
+    </dialog>
+    <dialog id="checkout-dialog" aria-labelledby="checkout-title">
+      <div class="dialog-head">
+        <h2 id="checkout-title">Your next good moment.</h2>
+        <button
+          class="icon-btn"
+          data-close
+          type="button"
+          aria-label="Close checkout"
+        >
+          ×
+        </button>
+      </div>
+      <form id="checkout-form">
+        <p class="small muted" id="checkout-customer"></p>
+        <fieldset style="border: 0; padding: 0; margin: 0">
+          <legend class="field-label">Where will you enjoy it?</legend>
+          <div class="radio-group">
+            <label class="radio-option"
+              ><input
+                type="radio"
+                name="order_type"
+                value="takeaway"
+                checked
+              />Takeaway</label
+            ><label class="radio-option"
+              ><input type="radio" name="order_type" value="table" />At a
+              table</label
+            >
+          </div>
+        </fieldset>
+        <div id="table-field" hidden>
+          <label for="table-number">Table number</label
+          ><input
+            id="table-number"
+            name="table_number"
+            maxlength="12"
+            placeholder="e.g. 04"
+          />
+        </div>
+        <fieldset style="border: 0; padding: 0; margin: 16px 0">
+          <legend class="field-label">Demo payment method</legend>
+          <div class="radio-group">
+            <label class="radio-option"
+              ><input
+                type="radio"
+                name="payment_method"
+                value="card"
+                checked
+              />Card</label
+            ><label class="radio-option"
+              ><input
+                type="radio"
+                name="payment_method"
+                value="apple_pay"
+              />Apple Pay</label
+            >
+          </div>
+        </fieldset>
+        <p class="notice" id="checkout-upgrade"></p>
+        <div id="checkout-summary"></div>
+        <p class="notice" id="checkout-discount"></p>
+        <p class="small muted">
+          This is a simulated payment, not a card form or Apple Pay integration.
+          No payment details are collected and no money is charged. Final totals
+          and discounts are calculated by the server.
+        </p>
+        <div class="notice error" id="checkout-error" role="alert" hidden></div>
+        <button class="btn full" id="place-order" type="submit">
+          Place demo order ↗
+        </button>
+      </form>
+    </dialog>
+    <dialog id="ar-dialog" aria-labelledby="ar-title">
+      <div class="dialog-head">
+        <h2 id="ar-title">A new perspective.</h2>
+        <button
+          class="icon-btn"
+          data-close
+          type="button"
+          aria-label="Close 3D preview"
+        >
+          ×
+        </button>
+      </div>
+      <label for="ar-size">Preview cup size</label
+      ><select id="ar-size">
+        <option value="12oz">12 oz</option>
+        <option value="16oz">16 oz</option>
+      </select>
+      <div id="ar-container" style="margin-top: 16px"></div>
+      <p id="ar-state" class="notice" role="status">
+        Loading the to-scale cup model…
+      </p>
+      <p class="ar-help">
+        Rotate and zoom the 3D cup. On supported devices, use “View in your
+        space” to launch Android AR or iOS Quick Look. The viewer generates the
+        iOS model on demand. HTTPS, camera access, and device support are
+        required. Models illustrate cup dimensions, not certified capacity or
+        the appearance of each drink.
+      </p>
+    </dialog>
+    <noscript
+      ><div class="notice error">
+        Please enable JavaScript to load the menu, place orders, and follow your
+        coffee.
+      </div></noscript
+    >
+  </body>
+</html>

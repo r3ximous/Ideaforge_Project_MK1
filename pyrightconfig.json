@@ -1,0 +1,8 @@
+{
+  "include": ["altitude-pulse/backend", "altitude-pulse/tests", "altitude-pulse/scripts"],
+  "exclude": ["**/.venv", "**/__pycache__"],
+  "venvPath": "altitude-pulse",
+  "venv": ".venv",
+  "pythonVersion": "3.10",
+  "extraPaths": ["altitude-pulse"]
+}
